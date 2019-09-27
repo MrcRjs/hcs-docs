@@ -70,10 +70,12 @@ Status: 200 OK
   "tasks": 
   [
     {
+      "_id": "5d8dc2f6413c802eacd089b4",
       "title": "Buy cat food",
       "created": "2019-09-26T18:08:29.770Z"
     },
     {
+      "_id": "5d8dc2f6413c802eacd089b4",
       "title": "Avoid cat quantum superposition",
       "created": "2019-09-26T18:24:57.298Z"
     }
@@ -117,14 +119,17 @@ Status: 201 Created
   [
     {
       "title": "Buy cat food",
+      "_id": "5d8dc0b5413c802eacd089b0",
       "created": "2019-09-26T18:08:29.770Z"
     },
     {
       "title": "Avoid cat quantum superposition",
+      "_id": "5d8dc0bb413c802eacd089b1",
       "created": "2019-09-26T18:24:57.298Z"
     },
     {
       "title": "Feed the 🦁",
+      "_id": "5d8dc276413c802eacd089b2",
       "created": "2019-09-26T18:33:17.434Z"
     }
   ]
@@ -169,14 +174,17 @@ Status: 200 OK
   "tasks":
   [
     {
+      "_id": "5d8dc2e2413c802eacd089b3",
       "title": "Get more cardboard boxes",
       "created": "2019-09-26T18:48:53.570Z"
     },
     {
+      "_id": "5d8dc2f6413c802eacd089b4",
       "title": "Avoid cat quantum superposition",
       "created": "2019-09-26T18:24:57.298Z"
     },
     {
+      "_id": "5d8dc329413c802eacd089b5",
       "title": "Feed the 🦁",
       "created": "2019-09-26T18:33:17.434Z"
     }
@@ -201,7 +209,7 @@ This endpoint returns a 404 Not Found status if the task does not exist.
 
 ```json
   {
-    "index": 1
+    "index": "5d8dc2f6413c802eacd089b3"
   }
 ```
 
@@ -221,12 +229,85 @@ Status: 200 OK
   [
     {
       "title": "Buy cat food",
+      "_id": "5d8dc2f6413c802eacd089b4",
       "created": "2019-09-26T18:08:29.770Z"
     },
     {
       "title": "Feed the 🦁",
+      "_id": "5d8dc2f6413c802eacd089b5",
       "created": "2019-09-26T18:33:17.434Z"
     }
   ]
+}
+```
+
+#### Create a new user
+
+**`POST /users`**
+
+##### Parameters
+
+| Name        | Type        | Description  |
+| ------------|-------------| ------------ |
+| `name`     | `String` | **Required.** User name. |
+| `email`     | `String` | **Required.** User email. |
+| `password`     | `String` | **Required.** User password. |
+
+##### Example
+
+```json
+  {
+    "name": "Fulanito🦁",
+    "email": "fulanito@nexus6.com",
+    "password": "mypass" 
+  }
+```
+
+##### Response
+
+```
+Status: 201 Created
+```
+```json
+{
+  "user":
+  {
+    "name": "Alice",
+    "email": "Alice@nexus6.com"    
+  },
+  "tasks":
+  []
+}
+```
+
+#### Login
+
+**`POST /login`**
+
+##### Parameters
+
+| Name        | Type        | Description  |
+| ------------|-------------| ------------ |
+| `email`     | `String` | **Required.** User email. |
+| `password`     | `String` | **Required.** User password. |
+
+##### Example
+
+```json
+  {
+    "email": "fulanito@nexus6.com",
+    "password": "mypass" 
+  }
+```
+
+##### Response
+
+```
+Status: 200 OK
+```
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYm9iQG5leHVzNi5jb20ifSwiaWF0IjoxNTY5NTcyMTU0LCJleHAiOjE1Njk2NTg1NTR9.WFTOR51Drqqjmj60-UTjkGJPVBmM1_58XCceQRRooko",
+    "status": 200
 }
 ```
