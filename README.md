@@ -26,6 +26,28 @@ Application consisting of a task manager, to create, read, update, and delete ta
 *Pre-built frameworks that
 accommodate all features out-of-the-box will not be accepted.*
 
+## DB Schema
+
+UserSchema
+```json
+{   
+  "user":
+  {
+    "name": String,
+    "email": String,
+    "password": String  
+  },
+  tasks:
+  [
+    {
+      "title": String,
+      "created": Date
+    }
+  ]
+}
+```
+
+
 
 ## API Endpoints
 
